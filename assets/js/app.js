@@ -1,4 +1,11 @@
+// Make sure app.js is loaded and connected to index.html
+console.log("app.js loaded")
+
 // Load the csv data using d3.csv
+d3.csv("assets/data/data.csv").then(function(csvData) {
+    console.log("csv data has been loaded");
+    console.log(csvData);
+});
 
 // Create a static scatter plot shell
 

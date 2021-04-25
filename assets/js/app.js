@@ -2,12 +2,26 @@
 console.log("app.js loaded")
 
 // Load the csv data using d3.csv
-d3.csv("assets/data/data.csv").then(function(csvData) {
+d3.csv("assets/data/data.csv").then(csvData => {
     console.log("csv data has been loaded");
     console.log(csvData);
+
+
+    var resultArray = csvData.filter(s => s);
+    var result = resultArray[0];
+    console.log(resultArray);
+
+    // Define variables to be used for statics csv
+    var smoker = result.smokes 
+    var age = result.age
+    
+    console.log(smoker);
+    console.log(age);
+
 });
 
 // Create a static scatter plot shell
+
 
 // Create and situate axes labels to the left and bottom of the chart
 

@@ -180,19 +180,19 @@ d3.csv("assets/data/data.csv").then(csvData => {
     var labelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${width / 2}, ${height + 20})`);
 
-    var povertyLabel = labelsGroup.append("text")
-    .attr("x", 0)
-    .attr("y", 20)
-    .attr("value", "poverty") // value to grab for event listener
-    .classed("active", true)
-    .text("State Poverty %");
-
     var ageLabel = labelsGroup.append("text")
     .attr("x", 0)
-    .attr("y", 40)
+    .attr("y", 20)
     .attr("value", "age") // value to grab for event listener
-    .classed("inactive", true)
+    .classed("active", true)
     .text("State Age %");
+
+    var povertyLabel = labelsGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 40)
+    .attr("value", "poverty") // value to grab for event listener
+    .classed("inactive", true)
+    .text("State Poverty %");
 
     // append y axis
     chartGroup.append("text")
@@ -255,9 +255,6 @@ d3.csv("assets/data/data.csv").then(csvData => {
     });
 });
 
-
-
-// Include state abbreviations in the scatter plot circles
 
 // Populate the scatter plot with two variables
 // Healthcare v. Poverty or Smokers v. Age

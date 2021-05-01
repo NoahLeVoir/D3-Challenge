@@ -3,6 +3,7 @@
   border: 1px solid #e3e3e3;
 }
 
+
 /* Sticky Footer rules (https://getbootstrap.com/examples/sticky-footer/) */
 html {
   position: relative;
@@ -12,6 +13,13 @@ html {
 body {
   /* Padding bottom by footer height */
   padding-bottom: 80px;
+  /* Image and aesthetics for the body */
+  /* background-image: url(../../Images/newspaper.jpeg); */
+  background: linear-gradient(honeydew, white);
+  height: 1200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #footer {

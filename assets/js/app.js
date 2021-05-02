@@ -112,17 +112,17 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels) {
     console.log("UpdateToolTip function")
 
     if (chosenXAxis === "age") {
-      var xlabel = "AGE";
+      var xlabel = "Average Age";
     }
     else {
-      xlabel = "Poverty %";
+      xlabel = "% Experiencing Poverty";
     }
 
     if (chosenYAxis === "healthcare") {
-    var ylabel = "Healthcare";
+    var ylabel = "% Lacking Healthcare";
     }
     else {
-    ylabel = "Smoker %";
+    ylabel = "% Who Smoke";
     }
 
     // Initialize toolTip
@@ -131,7 +131,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels) {
     .offset([90, 90])
     .html(function(d) {
     
-    return (`<strong>${d.state}</strong><br>${xlabel} ${d[chosenXAxis]}<br>${ylabel} ${d[chosenYAxis]}`);
+    return (`<strong>${d.state}</strong><br>${xlabel}: ${d[chosenXAxis]}<br>${ylabel}: ${d[chosenYAxis]}`);
     });
   
     // Call the tooltip for the circles using event listener
@@ -204,7 +204,7 @@ d3.csv("assets/data/data.csv").then(csvData => {
     .attr("cy", d => yLinearScale(d[chosenYAxis]))
     .attr("r", 20)
     .attr("fill", "green")
-    .attr("opacity", ".25");
+    .attr("opacity", ".35");
 
     // add state labels to circles
     // selectAll(null) comes from office hours - Issue with not full list of abbr solved
@@ -216,7 +216,7 @@ d3.csv("assets/data/data.csv").then(csvData => {
     .attr("y", d => yLinearScale(d[chosenYAxis]))
     .text(d => d.abbr)
     .attr("font-family", "sans-serif")
-    .attr("font-size", "10px")
+    .attr("font-size", "14px")
     .attr("text-anchor", "middle")
     .attr("fill", "white");
 
@@ -229,14 +229,14 @@ d3.csv("assets/data/data.csv").then(csvData => {
     .attr("y", 20)
     .attr("value", "age") // value to grab for event listener
     .classed("active", true)
-    .text("State Age %");
+    .text("Age");
 
     var povertyLabel = xlabelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 40)
     .attr("value", "poverty") // value to grab for event listener
     .classed("inactive", true)
-    .text("State Poverty %");
+    .text("Experiencing Poverty");
 
     // Create group for two y-axis labels
     var ylabelsGroup = chartGroup.append("g")
@@ -250,7 +250,7 @@ d3.csv("assets/data/data.csv").then(csvData => {
     .attr("value", "healthcare") // value to grab for event listener
     .classed("axis-text", true)
     .classed("active", true)
-    .text("State Healthcare %");
+    .text("Lacking Health Care");
 
     var smokesLabel = ylabelsGroup.append("text")
     .attr("transform", "rotate(-90)")
@@ -260,7 +260,7 @@ d3.csv("assets/data/data.csv").then(csvData => {
     .attr("value", "smokes") // value to grab for event listener
     .classed("axis-text", true)
     .classed("inactive", true)
-    .text("State Smoking %");
+    .text("Smokers");
 
     // updateToolTip function above csv import
     var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels);

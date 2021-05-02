@@ -3,7 +3,7 @@ Homework 16 for UMN Data Visualization and Analytics bootcamp
 
 ## Noah LeVoir
 
-link to webpage submission: 
+link to webpage submission: https://noahlevoir.github.io/D3-Challenge/
 
 This repo contains the following:
 - An images folder with the images used in the readme
